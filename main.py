@@ -8,7 +8,6 @@ st.subheader('Directions:')
 st.write('- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
          'recommend with over 10k URLs (very slow) ')
 
-st.write(' Note: If similarity is less than 0.86, The tool recommend redirect default value( Home page ) ')
 st.write("Author - [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
 # Importing the URL CSV files
 url = st.text_input('The URL to Match', placeholder='Enter domain (www.google.com)')
