@@ -29,8 +29,8 @@ if authentication_status:
     image = Image.open('impressive.jpg')
     st.image(image)
 
-    st.title(f"Welcome {name}")
-    st.title('Python URL / Redirect Mapping Tool with Default Value')
+    st.subheader(f"Welcome {name}")
+    st.subheader('Python URL / Redirect Mapping Tool with Default Value')
     st.subheader('Directions:')
     st.write('- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
              'recommend with over 10k URLs (very slow) ')
