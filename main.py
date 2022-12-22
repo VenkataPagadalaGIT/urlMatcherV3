@@ -6,20 +6,19 @@ import pickle
 from pathlib import Path
 import streamlit_authenticator as stauth
 from PIL import Image
-# USER AUTH
-names = ["Sarak","Eswar","Admin"]
-usernames = ["sarakdahal", "eswar", "admin"]
 
+# USER AUTH
+names = ["Sarak", "Eswar", "Admin", "Impressive USA", "Impressive AU"]
+usernames = ["sarakdahal", "eswar", "admin", "ImpressiveUSA", "ImpressiveAU"]
 # Load hashed passwords
 file_path = Path(__file__).parent / "hashed_pw.pkl"
 with file_path.open("rb") as file:
     hashed_passwords = pickle.load(file)
 
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords,
-                                    "urlMatcher","#12#2262",cookie_expiry_days=7)
+                                    "urlMatcher", "#12#2262", cookie_expiry_days=7)
 
-
-name, authentication_status, username = authenticator.login("Login","main")
+name, authentication_status, username = authenticator.login("Login", "main")
 
 if authentication_status == False:
     st.error("Username/password is incorrect.")
@@ -50,10 +49,10 @@ if authentication_status:
         current_list = current["Address"].tolist()
         current_list = [sub.replace(ROOTDOMAIN, '') for sub in current_list]
 
-        for i in range(2,3):
+        for i in range(2, 3):
             tfidf = TFIDF(n_gram_range=(i, i))
             model = PolyFuzz(tfidf)
-            model.match(broken_list,current_list)
+            model.match(broken_list, current_list)
             df1 = model.get_matches()
             # Polishing and Pruning
             df1["Similarity"] = df1["Similarity"].round(3)
@@ -73,18 +72,22 @@ if authentication_status:
             mainH1 = val['H1'][0]
             df3 = pd.merge(df, df1, on='To')
             df3 = df3[['Similarity', 'From', 'To', 'Title', 'Meta Description', 'H1']]
-            var=.45
+            var = .45
             df3.loc[df3["Similarity"] < var, "To"] = ROOTDOMAIN
             df3.loc[df3["Similarity"] < var, "Title"] = mainTitle
             df3.loc[df3["Similarity"] < var, "Meta Description"] = mainMeta
             df3.loc[df3["Similarity"] < var, "H1"] = mainH1
-            #df3 = df3.sort_values(by='Similarity', ascending=False)
+            # df3 = df3.sort_values(by='Similarity', ascending=False)
             df3
+
+
         # Downloading of File
         @st.cache
         def convert_df(df3):
             return df3.to_csv().encode('utf-8')
+
+
         csv = convert_df(df3)
         st.download_button("Download Output", csv, "file.csv", "text/csv", key='download-csv')
 
-        authenticator.logout("Logout","main")
+        authenticator.logout("Logout", "main")
