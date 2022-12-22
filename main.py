@@ -5,7 +5,7 @@ from polyfuzz.models import TFIDF
 import pickle
 from pathlib import Path
 import streamlit_authenticator as stauth
-
+from PIL import Image
 # USER AUTH
 names = ["Sarak","Eswar","Admin"]
 usernames = ["sarakdahal", "eswar", "admin"]
@@ -26,6 +26,9 @@ if authentication_status == False:
 if authentication_status == None:
     st.warning("Please enter your username and password.")
 if authentication_status:
+    image = Image.open('impressive.jpg')
+    st.image(image)
+
     st.title(f"Welcome {name}")
     st.title('Python URL / Redirect Mapping Tool with Default Value')
     st.subheader('Directions:')
