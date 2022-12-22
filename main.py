@@ -7,7 +7,7 @@ from pathlib import Path
 import streamlit_authenticator as stauth
 
 # USER AUTH
-names = ["SarakDahal","Eswar","Admin"]
+names = ["Sarak","Eswar","Admin"]
 usernames = ["sarakdahal", "eswar", "admin"]
 
 # Load hashed passwords
