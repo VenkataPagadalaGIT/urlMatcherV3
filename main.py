@@ -34,7 +34,7 @@ if authentication_status:
         selected = option_menu(
             menu_title="App Name Here",
             options=["URL Matcher", "Content Estimator", "User Profile","Logout"],
-            icons=["browser-edge","calculator","user","box-arrow-left"],
+            icons=["award","calculator","person-fill","box-arrow-left"],
             menu_icon="house-door",
             default_index=0
         )
