@@ -7,7 +7,7 @@ from pathlib import Path
 import streamlit_authenticator as stauth
 from PIL import Image
 from streamlit_option_menu import option_menu
-st.beta_set_page_config(nav_menu_color='#150958')
+#st.beta_set_page_config(nav_menu_color='#150958')
 
 
 
