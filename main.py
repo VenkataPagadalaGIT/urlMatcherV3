@@ -105,7 +105,9 @@ if authentication_status:
             st.download_button("Download Output", csv, "file.csv", "text/csv", key='download-csv')
 
         if selected == "Content Estimator":
-            st.title(f"Content Esti")
+            react_app_url = "https://content-estimator.web.app/"
+
+            st.iframe(react_app_url, width=800, height=600)
         if selected == "User Profile":
             st.title(f"User Profile")
         if selected == "Logout":
