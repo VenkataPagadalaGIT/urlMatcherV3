@@ -106,7 +106,6 @@ if authentication_status:
 
         if selected == "Content Estimator":
             react_app_url = "https://content-estimator.web.app/"
-
             st.iframe(react_app_url, width=800, height=600)
         if selected == "User Profile":
             st.title(f"User Profile")
