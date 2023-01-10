@@ -33,7 +33,7 @@ if authentication_status:
     with st.sidebar:
         selected = option_menu(
             menu_title="App Name Here",
-            option_menu=["URL Matcher", "Content Estimator", "User Profile","Logout"],
+            options=["URL Matcher", "Content Estimator", "User Profile","Logout"],
             icons=["browser-edge","calculator","user","box-arrow-left"],
             menu_icon="house-door",
             default_index=0
