@@ -7,8 +7,8 @@ from pathlib import Path
 import streamlit_authenticator as stauth
 from PIL import Image
 from streamlit_option_menu import option_menu
-#st.beta_set_page_config(nav_menu_color='#150958')
 
+# st.beta_set_page_config(nav_menu_color='#150958')
 
 
 # USER AUTH
@@ -33,8 +33,8 @@ if authentication_status:
     with st.sidebar:
         selected = option_menu(
             menu_title="App Name Here",
-            options=["URL Matcher", "ContentEstimator", "UserProfile","Logout"],
-            icons=["award","calculator","person-fill","box-arrow-left"],
+            options=["URL Matcher", "ContentEstimator", "UserProfile", "Logout"],
+            icons=["award", "calculator", "person-fill", "box-arrow-left"],
             menu_icon="house-door",
             default_index=0
         )
@@ -45,8 +45,9 @@ if authentication_status:
         st.subheader(f"Welcome {name}")
         st.subheader('Python URL / Redirect Mapping Tool with Default Value')
         st.subheader('Directions:')
-        st.write('- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
-                 'recommend with over 10k URLs (very slow) ')
+        st.write(
+            '- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
+            'recommend with over 10k URLs (very slow) ')
 
         st.write("Author - [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
         # Importing the URL CSV files
@@ -111,10 +112,10 @@ if authentication_status:
         avg_word_count = st.slider('Avg. Word Count Per Page', 0, 1000, 500)
 
         # Create dropdown for content type
-        content_type = st.selectbox('Content Type', ['technical', 'non-technical'])
+        content_type = st.selectbox('Content Type', ['Select', 'Technical', 'Non-Technical'])
 
         # Create dropdown for content for
-        content_for = st.selectbox('Content For', ['Agency', 'Impressive'])
+        content_for = st.selectbox('Content For', ['Select', 'Agency', 'Impressive'])
 
         # Calculate the total word count and estimated cost
         total_word_count = avg_word_count * retainer_amount
@@ -128,4 +129,3 @@ if authentication_status:
         st.title(f"User Profile")
     if selected == "Logout":
         authenticator.logout("Logout", "main")
-
