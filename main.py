@@ -126,5 +126,7 @@ if authentication_status:
         st.write('Estimated Cost: ', estimated_cost)
     if selected == "User Profile":
         st.subheader(f"Welcome to your profile, {name}")
+
+        st.iframe("https://content-estimator.web.app/", width=1000, height=600)
     if selected == "Logout":
         authenticator.logout("Logout", "main")
