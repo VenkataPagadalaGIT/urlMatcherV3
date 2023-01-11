@@ -127,6 +127,9 @@ if authentication_status:
     if selected == "User Profile":
         st.subheader(f"Welcome to your profile, {name}")
 
-        st.iframe("https://content-estimator.web.app/", width=1000, height=600)
+        st.write('''
+            <iframe src="https://content-estimator.web.app/"
+                    style="border: none; width: 100%; height: 600px;"></iframe>
+        ''', unsafe_allow_html=True)
     if selected == "Logout":
         authenticator.logout("Logout", "main")
