@@ -124,7 +124,7 @@ if authentication_status:
         # Display the results
         st.write('Total Word Count: ', total_word_count)
         st.write('Estimated Cost: ', estimated_cost)
-    if selected == "User Profile":
+    if selected == "Content Estimator 2":
         #st.subheader(f"Welcome to your profile, {name}")
 
         st.write('''
