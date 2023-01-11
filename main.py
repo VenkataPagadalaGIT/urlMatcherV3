@@ -125,7 +125,6 @@ if authentication_status:
         st.write('Total Word Count: ', total_word_count)
         st.write('Estimated Cost: ', estimated_cost)
     if selected == "UserProfile":
-        image = Image.open('impressive.jpg')
-        st.title(f"User Profile")
+        st.subheader(f"Welcome to your profile, {name}")
     if selected == "Logout":
         authenticator.logout("Logout", "main")
