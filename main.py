@@ -129,7 +129,7 @@ if authentication_status:
 
         st.write('''
             <iframe src="https://content-estimator.web.app/"
-                    style="border: none; width: auto; height: auto;"></iframe>
+                    style="border: none; width: 100%; height: 600px;"></iframe>
         ''', unsafe_allow_html=True)
     if selected == "Logout":
         authenticator.logout("Logout", "main")
