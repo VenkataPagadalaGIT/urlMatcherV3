@@ -33,7 +33,7 @@ if authentication_status:
     with st.sidebar:
         selected = option_menu(
             menu_title="App Name Here",
-            options=["URL Matcher", "ContentEstimator", "UserProfile", "Logout"],
+            options=["URL Matcher", "Content Estimator", "User Profile", "Logout"],
             icons=["award", "calculator", "person-fill", "box-arrow-left"],
             menu_icon="house-door",
             default_index=0
@@ -105,7 +105,7 @@ if authentication_status:
             csv = convert_df(df3)
             st.download_button("Download Output", csv, "file.csv", "text/csv", key='download-csv')
 
-    if selected == "ContentEstimator":
+    if selected == "Content Estimator":
         image = Image.open('impressive.jpg')
         # Create sliders for retainer amount and average word count per page
         retainer_amount = st.slider('Retainer Amount', 0, 10000, 1000)
@@ -124,7 +124,7 @@ if authentication_status:
         # Display the results
         st.write('Total Word Count: ', total_word_count)
         st.write('Estimated Cost: ', estimated_cost)
-    if selected == "UserProfile":
+    if selected == "User Profile":
         st.subheader(f"Welcome to your profile, {name}")
     if selected == "Logout":
         authenticator.logout("Logout", "main")
