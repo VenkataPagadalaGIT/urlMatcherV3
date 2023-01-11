@@ -105,6 +105,7 @@ if authentication_status:
             st.download_button("Download Output", csv, "file.csv", "text/csv", key='download-csv')
 
         if selected == "ContentEstimator":
+            image = Image.open('impressive.jpg')
             # Create sliders for retainer amount and average word count per page
             retainer_amount = st.slider('Retainer Amount', 0, 10000, 1000)
             avg_word_count = st.slider('Avg. Word Count Per Page', 0, 1000, 500)
@@ -123,6 +124,7 @@ if authentication_status:
             st.write('Total Word Count: ', total_word_count)
             st.write('Estimated Cost: ', estimated_cost)
         if selected == "UserProfile":
+            image = Image.open('impressive.jpg')
             st.title(f"User Profile")
         if selected == "Logout":
             authenticator.logout("Logout", "main")
