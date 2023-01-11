@@ -32,8 +32,8 @@ if authentication_status:
 
     with st.sidebar:
         selected = option_menu(
-            menu_title="App Name Here",
-            options=["URL Matcher", "Content Estimator", "User Profile", "Logout"],
+            menu_title="Impressive",
+            options=["URL Matcher", "Content Estimator", "Content Estimator 2", "Logout"],
             icons=["award", "calculator", "person-fill", "box-arrow-left"],
             menu_icon="house-door",
             default_index=0
@@ -125,11 +125,11 @@ if authentication_status:
         st.write('Total Word Count: ', total_word_count)
         st.write('Estimated Cost: ', estimated_cost)
     if selected == "User Profile":
-        st.subheader(f"Welcome to your profile, {name}")
+        #st.subheader(f"Welcome to your profile, {name}")
 
         st.write('''
             <iframe src="https://content-estimator.web.app/"
-                    style="border: none; width: 100%; height: 600px;"></iframe>
+                    style="border: none; width: auto; height: auto;"></iframe>
         ''', unsafe_allow_html=True)
     if selected == "Logout":
         authenticator.logout("Logout", "main")
