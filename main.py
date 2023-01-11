@@ -104,28 +104,28 @@ if authentication_status:
             csv = convert_df(df3)
             st.download_button("Download Output", csv, "file.csv", "text/csv", key='download-csv')
 
-        if selected == "ContentEstimator":
-            image = Image.open('impressive.jpg')
-            # Create sliders for retainer amount and average word count per page
-            retainer_amount = st.slider('Retainer Amount', 0, 10000, 1000)
-            avg_word_count = st.slider('Avg. Word Count Per Page', 0, 1000, 500)
+    if selected == "ContentEstimator":
+        image = Image.open('impressive.jpg')
+        # Create sliders for retainer amount and average word count per page
+        retainer_amount = st.slider('Retainer Amount', 0, 10000, 1000)
+        avg_word_count = st.slider('Avg. Word Count Per Page', 0, 1000, 500)
 
-            # Create dropdown for content type
-            content_type = st.selectbox('Content Type', ['technical', 'non-technical'])
+        # Create dropdown for content type
+        content_type = st.selectbox('Content Type', ['technical', 'non-technical'])
 
-            # Create dropdown for content for
-            content_for = st.selectbox('Content For', ['Agency', 'Impressive'])
+        # Create dropdown for content for
+        content_for = st.selectbox('Content For', ['Agency', 'Impressive'])
 
-            # Calculate the total word count and estimated cost
-            total_word_count = avg_word_count * retainer_amount
-            estimated_cost = total_word_count * 0.05
+        # Calculate the total word count and estimated cost
+        total_word_count = avg_word_count * retainer_amount
+        estimated_cost = total_word_count * 0.05
 
-            # Display the results
-            st.write('Total Word Count: ', total_word_count)
-            st.write('Estimated Cost: ', estimated_cost)
-        if selected == "UserProfile":
-            image = Image.open('impressive.jpg')
-            st.title(f"User Profile")
-        if selected == "Logout":
-            authenticator.logout("Logout", "main")
+        # Display the results
+        st.write('Total Word Count: ', total_word_count)
+        st.write('Estimated Cost: ', estimated_cost)
+    if selected == "UserProfile":
+        image = Image.open('impressive.jpg')
+        st.title(f"User Profile")
+    if selected == "Logout":
+        authenticator.logout("Logout", "main")
 
