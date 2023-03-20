@@ -87,6 +87,8 @@ if authentication_status:
                 df3 = pd.merge(df, df1, on='To')
                 df3 = df3[['Similarity']]
                 var = .40
+                df
+                df3
                 df3.loc[df3["Similarity"] < var, "New URL"] = ROOTDOMAIN
                 df3.loc[df3["Similarity"] < var, "Title"] = mainTitle
                 df3.loc[df3["Similarity"] < var, "Meta Description"] = mainMeta
