@@ -70,7 +70,7 @@ if authentication_status:
                 df1 = model.get_matches()
                 # Polishing and Pruning
                 df1["Similarity"] = df1["Similarity"].round(3)
-                index_names = df1.loc[df1['Similarity'] < .40].index
+                index_names = df1.loc[df1['Similarity'] < .10].index
                 amt_dropped = len(index_names)
                 df1.drop(index_names, inplace=True)
                 df1["To"] = ROOTDOMAIN + df1["To"]
