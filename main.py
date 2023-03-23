@@ -48,7 +48,7 @@ if authentication_status:
             '- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
             'recommend with over 10k URLs (very slow) ')
 
-        st.write("Author - [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
+        st.write("Author update- [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
         # Importing the URL CSV files
         url = st.text_input('The URL to Match', placeholder='Enter domain (www.google.com)')
         file1 = st.file_uploader("Upload 404 CSV File")
@@ -92,7 +92,6 @@ if authentication_status:
                 df3.loc[df3["Similarity"] > var, "Meta Description"] = mainMeta
                 df3.loc[df3["Similarity"] > var, "H1"] = mainH1
                 df3 = df3.sort_values(by='Similarity', ascending=False)
-                print('Just edited')
                 df3
 
 
