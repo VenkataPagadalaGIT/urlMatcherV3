@@ -92,6 +92,7 @@ if authentication_status:
                 df3.loc[df3["Similarity"] > var, "Meta Description"] = mainMeta
                 df3.loc[df3["Similarity"] > var, "H1"] = mainH1
                 df3 = df3.sort_values(by='Similarity', ascending=False)
+                print('Just edited')
                 df3
 
 
