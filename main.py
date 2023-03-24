@@ -48,7 +48,7 @@ if authentication_status:
             '- Upload complete crawl \n - Upload a list of 404s in.CSV format (URL column named URL) \n - Would not '
             'recommend with over 10k URLs (very slow) ')
 
-        st.write("Author update- [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
+        st.write("Author - [Venkata Pagadala](https://www.linkedin.com/in/venkata-pagadala/)")
         # Importing the URL CSV files
         url = st.text_input('The URL to Match', placeholder='Enter domain (www.google.com)')
         file1 = st.file_uploader("Upload 404 CSV File")
@@ -81,19 +81,20 @@ if authentication_status:
                 df['Meta Description'] = current['Meta Description 1']
                 df['H1'] = current['H1-1']
                 val = df[df['To'].str.contains(ROOTDOMAIN)]
-                mainTitle = val['Title'][0]
-                mainMeta = val['Meta Description'][0]
-                mainH1 = val['H1'][0]
-                df3 = pd.merge(df, df1, on='To')
-                df3 = df3[['Similarity']]
-                var = .40
+                mainTitle = val['Title'].values[0] if not val['Title'].empty else ''
+                mainMeta = val['Meta Description'].values[0] if not val['Meta Description'].empty else ''
+                mainH1 = val['H1'].values[0] if not val['H1'].empty else ''
+                df3 = pd.merge(df1, df, left_on='To', right_on='To', how='left')
+                df3.loc[df3["Similarity"] >= var, "New URL"] = df3["To"]
+                df3.loc[df3["Similarity"] >= var, "Title"] = df3["Title"]
+                df3.loc[df3["Similarity"] >= var, "Meta Description"] = df3["Meta Description"]
+                df3.loc[df3["Similarity"] >= var, "H1"] = df3["H1"]
                 df3.loc[df3["Similarity"] < var, "New URL"] = ROOTDOMAIN
                 df3.loc[df3["Similarity"] < var, "Title"] = mainTitle
                 df3.loc[df3["Similarity"] < var, "Meta Description"] = mainMeta
                 df3.loc[df3["Similarity"] < var, "H1"] = mainH1
                 df3 = df3.sort_values(by='Similarity', ascending=False)
                 df3
-
 
             # Downloading of File
             @st.cache
