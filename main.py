@@ -84,10 +84,11 @@ if authentication_status:
                 mainTitle = val['Title'][0]
                 mainMeta = val['Meta Description'][0]
                 mainH1 = val['H1'][0]
+                
                 df3 = pd.merge(df, df1, on='To')
-                df3 = df3[['Similarity']]
+                df3 = df3[['From', 'To', 'Similarity', 'Title', 'Meta Description', 'H1']]  # Keep all the required columns
                 var = .40
-                df3.loc[df3["Similarity"] >= var, "New URL"] = ROOTDOMAIN
+                df3.loc[df3["Similarity"] >= var, "From"] = df3.loc[df3["Similarity"] >= var, "To"]  # Update 'From' column with the matching URL
                 df3.loc[df3["Similarity"] >= var, "Title"] = mainTitle
                 df3.loc[df3["Similarity"] >= var, "Meta Description"] = mainMeta
                 df3.loc[df3["Similarity"] >= var, "H1"] = mainH1
