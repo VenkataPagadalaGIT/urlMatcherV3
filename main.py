@@ -86,7 +86,7 @@ if authentication_status:
                 mainH1 = val['H1'][0]
                 
                 df3 = pd.merge(df, df1, on='To')
-                df3 = df3[['From', 'To', 'Similarity', 'Title', 'Meta Description', 'H1']]  # Keep all the required columns
+                df3 = df3[['Similarity', 'From', 'To', 'Title', 'Meta Description', 'H1']]  # Keep all the required columns
                 var = .40
                 df3.loc[df3["Similarity"] >= var, "From"] = df3.loc[df3["Similarity"] >= var, "To"]  # Update 'From' column with the matching URL
                 df3.loc[df3["Similarity"] >= var, "Title"] = mainTitle
